@@ -37,13 +37,14 @@ class Buscar:
             #//*[@id="main-app"]/div/div[5]/div/div[2]/section/div[2]/div[2]/div[1]/div/div[4]/ul/li[1]/div[1]/div[1]/h3
             for x in range(3):
                 cine_pantalla = driver.find_element_by_xpath('//*[@id="main-app"]/div/div[5]/div/div[2]/section/div[2]/div[2]/div[1]/div/div[4]/ul/li['+str(x+1)+']/div[1]/div[1]/h3').text
+                print('CIne de la app: ', cine_pantalla)
+                print('El del objeto funcion: ', cine)
                 if cine_pantalla == cine:
                     c = x+1
             return c
         
-
-            
-
+        
+        
         def selectFuncion(driver, cine, tipo_funcion):
             num_fun = 0
             tipos_funciones = driver.find_element_by_xpath('//*[@id="main-app"]/div/div[5]/div/div[2]/section/div[2]/div[2]/div[1]/div/div[4]/ul/li['+str(cine)+']/div[2]')
@@ -101,7 +102,7 @@ class Buscar:
                     #Vuelve a cargar las peliculas y repite el bucle
                     movie_details = getMovieDetails(driver)
                 
-                num_c = selectCine(driver, fun.sucursal.id)
+                num_c = selectCine(driver, fun.sucursal.nombre)
                 print('Probo este cine:', num_c)
                 
                 num_f = selectFuncion(driver, num_c, fun.tipo_funcion)
@@ -121,6 +122,16 @@ class Buscar:
                 boton.click()
                 sleep(5)
                 element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, 'seatsContainer')))
+                
+                ###################################################################
+                
+                
+                
+                
+                
+                
+                ####################################################################
+                
                 print('Sera aqui')
                 asientos = element.find_elements_by_class_name("cell-container")
                 print('yyyy')

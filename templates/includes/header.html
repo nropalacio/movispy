@@ -1,0 +1,16 @@
+<div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu-text">MovieSpy</li>
+        <li>
+          <a href="{% url 'moviespy_app:inicio' %}">Inicio</a>
+        </li>
+        <li><a href="{% url 'moviespy_app:consulta' %}">Consultas</a></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li><a href="{% url 'moviespy_app:dia' %}" class="button">Ver datos del dia</a></li>
+      </ul>
+    </div>
+</div>

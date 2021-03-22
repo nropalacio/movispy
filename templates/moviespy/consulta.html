@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    MovieSpy - Consultas
+{% endblock title %}
+    
+{% block content %}
+{% include "includes/header.html" %}
+
+<div class="grid-container">
+    <div class="grid-x">
+        <h3 class="cell">Consulta Por Dia</h3>
+        <form class="cell grid-x grid-margin-x" style="text-align: center;" method="GET">{% csrf_token %}
+            <div class="cell large-6">
+                <input type="date" id="kword" name="kword">
+            </div>
+            <div class="cell large-1">
+                <button type="submit" class="success button">Buscar</button>
+            </div>
+            <div class="cell large-2">
+                <a href="about.html" class="button">Descargar
+                </a>
+            </div>
+            
+        </form>
+        <div class="cell">
+            <table>
+                <thead>
+                    <tr>
+                    <th width="200">Pelicula</th>
+                    <th width="150">Sucursal</th>
+                    <th width="150">Tipo Funcion</th>
+                    <th width="150">Hora</th>
+                    <th width="150">Sala</th>
+                    <th width="150">Asientos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tom y Jerry</td>
+                        <td>Cinépolis Galerías</td>
+                        <td>Tradicional - 2D DOB</td>
+                        <td>17:00</td>
+                        <td>6</td>
+                        <td>20</td>
+                    </tr>
+                </tbody>
+                <!-- <tbody>
+                    {% for e in empleados %}
+                    <tr>
+                        <td>{{ e.id }}</td>
+                        <td>{{ e.first_name }}</td>
+                        <td>C{{ e.last_name }}</td>
+                        <td>{{ e.departamento }}</td>
+                        <td><a class="button warning" href="{% url 'persona_app:empleado_detail' e.id %}">Ver</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody> -->
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

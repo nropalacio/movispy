@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} MovieSpy - Inicio{% endblock title %}
+
+{% block content %}
+
+{% include 'includes/header.html' %}
+
+<!-- inico de la imagen de portada -->
+<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+  <div class="orbit-wrapper">
+    <ul class="orbit-container">
+      <li class="is-active orbit-slide">
+        <figure class="orbit-figure">
+          <img class="orbit-image" src="{% static 'img/mo.png' %}" alt="Space" style="height: 500px;">
+        </figure>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- fin de la imagen de portada -->
+
+<!-- bloque de bienvenida -->
+<div class="grid-x align-center">
+  <h1 class="cell large-8" style="font-size: 25px; text-align: center;">Bienvenido al Sistema de Web Scrapping de Cinepolis</h1>
+  <div class="cell large-7">
+    <div class="callout success" style="text-align: center;">
+      <h5 class="cell">Recopila y visualiza datos</h5>
+      <p>Para iniciar la recopilzacion de datos, da click al siguiente boton.</p>
+      <form method="post" class="cell">{% csrf_token %}
+        <button type="submit" class="primary button" name="iniciar">Iniciar</button>
+      </form>
+      
+      {% if result %}
+      <p style="color: red;">Result:{{ result }}</p>
+      {% endif %}
+        
+    </div>
+  </div>
+</div>
+<!-- fin de bloque de bienvenida -->
+
+{% endblock content %}
