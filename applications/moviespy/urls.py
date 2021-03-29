@@ -32,4 +32,9 @@ urlpatterns = [
         views.export_excel,
         name='export-excel'
     ),
+    path(
+        'export_excel_dia/',
+        views.export_excel_dia,
+        name='export-excel_dia'
+    ),
 ]

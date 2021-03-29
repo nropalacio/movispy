@@ -124,6 +124,8 @@ class ListAllFunciones(ListView):
                 lista3 = []
                 lista4 = []
 
+
+
                 
                 nombres = obteneNombres(1, palabra_clave)
                 for nombre in nombres:
@@ -328,6 +330,79 @@ def export_excel(request, pk):
     
     for nombre in nombres4:
         lista4.append(getListaBYNombre(nombre, pk, 4))
+
+
+    #CREO LA HOJA DE CINEPOLIS GALERIAS
+    ws = wb.add_sheet('Cinepolis Galerias')
+    row_num= 0
+    font_style=xlwt.XFStyle()
+    rows = lista1
+    for row in rows:
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+        row_num+=1
+
+    
+    ws = wb.add_sheet('MiCine Multiplaza Panamericana')
+    row_num= 0
+    font_style=xlwt.XFStyle()
+    rows = lista2
+    for row in rows:
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+        row_num+=1
+
+
+    ws = wb.add_sheet('Cinepolis VIP Galerias')
+    row_num= 0
+    font_style=xlwt.XFStyle()
+    rows = lista3
+    for row in rows:
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+        row_num+=1
+
+    ws = wb.add_sheet('MiCine Metro Centro Santa Ana')
+    row_num= 0
+    font_style=xlwt.XFStyle()
+    rows = lista4
+    for row in rows:
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+        row_num+=1
+
+    wb.save(response)
+
+    return response
+
+
+def export_excel_dia(request):
+    shortDate = datetime.today().strftime('%Y-%m-%d')
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename= horas_'+shortDate+'.xls'
+    wb = xlwt.Workbook(encoding='utf-8')
+    # font_style=xlwt.XFStyle()
+    # font_style.font.bold = True
+
+    nombres1 = obteneNombres(1, shortDate)
+    nombres2 = obteneNombres(2, shortDate)
+    nombres3 = obteneNombres(3, shortDate)
+    nombres4 = obteneNombres(4, shortDate)
+    lista1 = []
+    lista2 = []
+    lista3 = []
+    lista4 = []
+    for nombre in nombres1:
+        lista1.append(getListaBYNombre(nombre, shortDate, 1))
+    
+    for nombre in nombres2:
+        lista2.append(getListaBYNombre(nombre, shortDate, 2))
+
+    for nombre in nombres3:
+        lista3.append(getListaBYNombre(nombre, shortDate, 3))
+    
+    for nombre in nombres4:
+        lista4.append(getListaBYNombre(nombre, shortDate, 4))
 
 
     #CREO LA HOJA DE CINEPOLIS GALERIAS
