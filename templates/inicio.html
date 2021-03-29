@@ -8,38 +8,98 @@
 
 {% include 'includes/header.html' %}
 
-<!-- inico de la imagen de portada -->
-<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
-  <div class="orbit-wrapper">
-    <ul class="orbit-container">
-      <li class="is-active orbit-slide">
-        <figure class="orbit-figure">
-          <img class="orbit-image" src="{% static 'img/mo.png' %}" alt="Space" style="height: 500px;">
-        </figure>
-      </li>
-    </ul>
-  </div>
-</div>
-<!-- fin de la imagen de portada -->
+<div class="grid-container grid-x callout primary" style="margin-top: 25px;">
+  <!-- <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+    <div class="orbit-wrapper">
+      <ul class="orbit-container">
+        <li class="is-active orbit-slide">
+          <figure class="orbit-figure">
+            <img class="orbit-image" src="{% static 'img/mo.png' %}" alt="Space" style="height: 500px;">
+          </figure>
+        </li>
+      </ul>
+    </div>
+  </div> -->
 
-<!-- bloque de bienvenida -->
-<div class="grid-x align-center">
-  <h1 class="cell large-8" style="font-size: 25px; text-align: center;">Bienvenido al Sistema de Web Scrapping de Cinepolis</h1>
-  <div class="cell large-7">
-    <div class="callout success" style="text-align: center;">
-      <h5 class="cell">Recopila y visualiza datos</h5>
-      <p>Para iniciar la recopilzacion de datos, da click al siguiente boton.</p>
-      <form method="post" class="cell">{% csrf_token %}
-        <button type="submit" class="primary button" name="iniciar">Iniciar</button>
-      </form>
-      
-      {% if result %}
-      <p style="color: red;">Result:{{ result }}</p>
-      {% endif %}
+
+
+
+  <div class="grid-x align-center">
+    <h1 class="cell large-8" style="font-size: 25px; text-align: center;">Bienvenido al Sistema de Web Scrapping de Cinepolis</h1>
+    <div class="cell large-7">
+      <div class="callout secondary" style="text-align: center;">
+        <h5 class="cell">Recopila y visualiza datos</h5>
+        <p>Para iniciar la recopilzacion de datos, da click al siguiente boton.</p>
+        <form method="post" class="cell">{% csrf_token %}
+          <button type="submit" class="primary button" name="iniciar">Iniciar</button>
+        </form>
         
+        {% if result %}
+        <p style="color: red;"></p>
+        {% endif %}
+          
+      </div>
     </div>
   </div>
+
 </div>
-<!-- fin de bloque de bienvenida -->
+<div class="grid-container grid-x callout secondary" style="margin-top: 25px;">
+
+
+  <div class="grid-x cell align-center grid-margin-x">
+    
+
+    <div class="cell large-4 callout success grid-x grid-margin-x align-center">
+      <div class="cell">
+        <h5 style="text-align: center;">Peliculas</h5>
+      </div>
+      <img class="cell" src="{% static 'img/video-camera.png' %}" alt="Space" style="width: 50;">
+      <div class="cell large-7 callout ">
+
+        {% if result %}
+          <h5 style="text-align: center;">{{result.0}}</h5>
+          {% endif %}
+      </div>
+     
+    </div>
+      <div class="cell large-4 callout success grid-x grid-margin-x align-center">
+        <div class="cell">
+          <h5 style="text-align: center;">Funciones</h5>
+        </div>
+        <img class="cell" src="{% static 'img/movie.png' %}" alt="Space" style="width: 50;">
+        <div class="cell large-7 callout ">
+          {% if result %}
+          <h5 style="text-align: center;">{{result.1}}</h5>
+          {% endif %}
+          
+        </div>
+       
+      </div>
+      <div class="cell large-4 callout success grid-x grid-margin-x align-center">
+        <div class="cell">
+          <h5 style="text-align: center;">Reservas</h5>
+        </div>
+        <img class="cell" src="{% static 'img/ticket.png' %}" alt="Space" style="width: 50;">
+        <div class="cell large-7 callout ">
+
+          <h5 style="text-align: center;">250</h5>
+        </div>
+       
+      </div>
+
+
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- inico de la imagen de portada -->
+
+<!-- fin de la imagen de portada -->
+
+
 
 {% endblock content %}

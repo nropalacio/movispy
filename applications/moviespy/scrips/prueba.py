@@ -1,15 +1,25 @@
-from prueba_xpath import LocalizarHorasSalas
-from getpeliculas import ObtenerPeliculas
-#from buscar import Buscar
+from selenium import webdriver
 from time import sleep
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from datetime import datetime
 
-#urls = ['https://www.cinepolis.com.sv/peliculas/tom-y-jerry']
-#urls = ObtenerPeliculas.printNombres()
-#sleep(5)
+###########################################################
+DRIVER_PATH = '/home/rodrigo/web_drivers/chromedriver'
+MAIN_URL = 'https://www.cinepolis.com.sv/peliculas/godzilla-vs-kong'
+###########################################################
+driver = webdriver.Chrome(DRIVER_PATH)
+driver.get(MAIN_URL)
+driver.maximize_window()
+actions = ActionChains(driver)
 
-
-try:
-    urls = ObtenerPeliculas.printNombres()
-    #clearLocalizarHorasSalas.iniciar(urls)
-except Exception as e:
-    print('Hubo un error, intentalo de nuevo: ', e)
+shortDate = datetime.today().strftime('%d')
+print(shortDate)
+sleep(5)
+dia = driver.find_element_by_xpath('//*[@id="date"]/div/div[1]/div/label/div[2]/div/div/div[2]/span').text
+print('dia: ', dia)
+driver.quit()

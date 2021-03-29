@@ -1,142 +1,424 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    MovieSpy - Actual
+MovieSpy - Actual
 {% endblock title %}
-    
+
 {% block content %}
 {% include "includes/header.html" %}
 
+{% if funciones.0 %}
+    
+
+    
 <div class="grid-container">
     <div class="grid-x">
         <h3 class="cell" style="margin: 20px; margin-top: 30;">Datos del dia:</h3>
-        <hr class=cell>
-        <div class="cell">
+        
+
+        <div class="cell callout secondary">
+
             <div class="cell grid-container">
+                <div class="cell">
+                    <div class="cell grid-container">
+                        <ul class="tabs" data-active-collapse="true" data-tabs id="collapsing-tabs">
+                            <li class="tabs-title is-active"><a href="#gale" aria-selected="true">Cinepolis Galerias</a></li>
+                            <li class="tabs-title"><a href="#mult">MiCine Multiplaza Panamericana</a></li>
+                            <li class="tabs-title"><a href="#vip">Cinépolis VIP Galerías</a></li>
+                            <li class="tabs-title"><a href="#san">MiCine Metro Centro Santa Ana</a></li>
+                        </ul>
+        
+                        <div class="tabs-content" data-tabs-content="collapsing-tabs">
+                            <div class="tabs-panel is-active" id="gale">
+                                <!---------------------------------------------------------------------->
+        
+                                <ul class="tabs" data-active-collapse="true" data-tabs id="collapsing-tabs">
+                                    <li class="tabs-title is-active"><a href="#sala1" aria-selected="true">Sala</a></li>
+                                    <li class="tabs-title"><a href="#pelicula1">Horarios</a></li>
+                                </ul>
+        
+                                <div class="tabs-content" data-tabs-content="collapsing-tabs">
+                                    <div class="tabs-panel is-active" id="sala1">
+        
+        
+        
+                                        <!----------------------------PRUEBA-------------------------->
+                                        <!----------------------------PRUEBA-------------------------->
+                                        <!----------------------------PRUEBA-------------------------->
+        
+                                        <ul class="accordion" data-accordion data-multi-expand="true">
+                                            {% for f in funciones.1.4 %}
+                                            <li class="accordion-item" data-accordion-item>
+                                                <!-- Accordion tab title -->
+                                                <a href="#" class="accordion-title">{{ f.0 }}</a>
+        
+                                                <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+                                                <div class="accordion-content" data-tab-content>
+                                                    <table class="stack">
+                                                        <thead style="text-align: center;">
+                                                            <tr>
+                                                                <th>Funcion</th>
+                                                                <th>Hora</th>
+                                                                <th>Sala</th>
+                                                                <th>Asientos Reservados</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {% for d in f.1 %}
+                                                            <tr>
+                                                                <td>{{ d.tipo_funcion}}</td>
+                                                                <td>{{ d.hora}}</td>
+                                                                <td>{{ d.sala}}</td>
+                                                                <td>{{ d.asientos}}</td>
+        
+                                                            </tr>
+                                                            {% endfor %}
+                                                        </tbody>
+                                                    </table>
+        
+                                                </div>
+                                            </li>
+                                            {% endfor %}
+                                            <!-- ... -->
+                                        </ul>
+        
+                                    </div>
+                                    <div class="tabs-panel" id="pelicula1">
+                                        <!----------------Horarios de cinepolis galerias----------------->
+        
+                                        <div class="table-scroll">
+                                            <table class="stack">
+                                                <thead style="text-align: center;">
+                                                    <tr>
+                                                        <th width="320">Pelicula</th>
+                                                        <th>Horarios</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for f in funciones.1.0 %}
+                                                    <tr>
+                                                        <td>{{ f.0}}</td>
+        
+                                                        <td>
+                                                            {{ f.1}}
+                                                        </td>
+        
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+        
+                                        </div>
+        
+                                    </div>
+                                </div>
+                                <!---------------------------------------------------------------------->
+        
+        
+                            </div>
+                            <div class="tabs-panel" id="mult">
+                                <!---------------------------------------------------------------------->
+        
+                                <!---------------------------------------------------------------------->
+        
+                                <ul class="tabs" data-active-collapse="true" data-tabs id="collapsing-tabs">
+                                    <li class="tabs-title is-active"><a href="#sala2" aria-selected="true">Sala</a></li>
+                                    <li class="tabs-title"><a href="#pelicula2">Horarios</a></li>
+                                </ul>
+        
+                                <div class="tabs-content" data-tabs-content="collapsing-tabs">
+                                    <div class="tabs-panel is-active" id="sala2">
+        
+        
+                                        <!----------------------------PRUEBA-------------------------->
+                                        <!----------------------------PRUEBA-------------------------->
+                                        <!----------------------------PRUEBA-------------------------->
+        
+                                        <ul class="accordion" data-accordion data-multi-expand="true">
+                                            {% for f in funciones.1.5 %}
+                                            <li class="accordion-item" data-accordion-item>
+                                                <!-- Accordion tab title -->
+                                                <a href="#" class="accordion-title">{{ f.0 }}</a>
+        
+                                                <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+                                                <div class="accordion-content" data-tab-content>
+                                                    <table class="stack">
+                                                        <thead style="text-align: center;">
+                                                            <tr>
+                                                                <th>Funcion</th>
+                                                                <th>Hora</th>
+                                                                <th>Sala</th>
+                                                                <th>Asientos Reservados</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {% for d in f.1 %}
+                                                            <tr>
+                                                                <td>{{ d.tipo_funcion}}</td>
+                                                                <td>{{ d.hora}}</td>
+                                                                <td>{{ d.sala}}</td>
+                                                                <td>{{ d.asientos}}</td>
+        
+                                                            </tr>
+                                                            {% endfor %}
+                                                        </tbody>
+                                                    </table>
+        
+                                                </div>
+                                            </li>
+                                            {% endfor %}
+                                            <!-- ... -->
+                                        </ul>
+        
+                                    </div>
+                                    <div class="tabs-panel" id="pelicula2">
+                                        <!----------------Aqui voy a meter las peliculas----------------->
+        
+                                        <div class="table-scroll">
+        
+        
+                                            <table class="stack">
+                                                <thead style="text-align: center;">
+                                                    <tr>
+                                                        <th width="320">Pelicula</th>
+                                                        <th>Horarios</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for f in funciones.1.1 %}
+                                                    <tr>
+                                                        <td>{{ f.0}}</td>
+        
+                                                        <td>
+                                                            {{ f.1}}
+                                                        </td>
+        
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+        
+                                        </div>
+        
+                                    </div>
+                                </div>
+        
+                                <!---------------------------------------------------------------------->
+        
+        
+                                <!---------------------------------------------------------------------->
+        
+                            </div>
+                            <div class="tabs-panel" id="vip">
+                                <!---------------------------------------------------------------------->
+        
+                                <!---------------------------------------------------------------------->
+        
+                                <ul class="tabs" data-active-collapse="true" data-tabs id="collapsing-tabs">
+                                    <li class="tabs-title is-active"><a href="#sala3" aria-selected="true">Datos</a></li>
+                                    <li class="tabs-title"><a href="#pelicula3">Horarios</a></li>
+                                </ul>
+        
+                                <div class="tabs-content" data-tabs-content="collapsing-tabs">
+                                    <div class="tabs-panel is-active" id="sala3">
+                                        <!----------------------------PRUEBA-------------------------->
+                                        <!----------------------------PRUEBA-------------------------->
+                                        <!----------------------------PRUEBA-------------------------->
+                                        <ul class="accordion" data-accordion data-multi-expand="true">
+                                            {% for f in funciones.1.6 %}
+                                            <li class="accordion-item" data-accordion-item>
+                                                <!-- Accordion tab title -->
+                                                <a href="#" class="accordion-title">{{ f.0 }}</a>
+        
+                                                <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+                                                <div class="accordion-content" data-tab-content>
+                                                    <table class="stack">
+                                                        <thead style="text-align: center;">
+                                                            <tr>
+                                                                <th>Funcion</th>
+                                                                <th>Hora</th>
+                                                                <th>Sala</th>
+                                                                <th>Asientos Reservados</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {% for d in f.1 %}
+                                                            <tr>
+                                                                <td>{{ d.tipo_funcion}}</td>
+                                                                <td>{{ d.hora}}</td>
+                                                                <td>{{ d.sala}}</td>
+                                                                <td>{{ d.asientos}}</td>
+        
+                                                            </tr>
+                                                            {% endfor %}
+                                                        </tbody>
+                                                    </table>
+        
+                                                </div>
+                                            </li>
+                                            {% endfor %}
+                                            <!-- ... -->
+                                        </ul>
+        
+                                    </div>
+                                    <div class="tabs-panel" id="pelicula3">
+                                        <!----------------Aqui voy a meter las peliculas----------------->
+        
+                                        <div class="table-scroll">
+        
+        
+                                            <table class="stack">
+                                                <thead style="text-align: center;">
+                                                    <tr>
+                                                        <th width="320">Pelicula</th>
+                                                        <th>Horarios</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for f in funciones.1.2 %}
+                                                    <tr>
+                                                        <td>{{ f.0}}</td>
+        
+                                                        <td>
+                                                            {{ f.1}}
+                                                        </td>
+        
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+        
+                                        </div>
+        
+                                    </div>
+                                </div>
+        
+                                <!---------------------------------------------------------------------->
+        
+        
+                                <!---------------------------------------------------------------------->
+        
+                            </div>
+                            <div class="tabs-panel" id="san">
+                                <!---------------------------------------------------------------------->
+        
+                                <!---------------------------------------------------------------------->
+        
+                                <ul class="tabs" data-active-collapse="true" data-tabs id="collapsing-tabs">
+                                    <li class="tabs-title is-active"><a href="#sala4" aria-selected="true">Datos</a></li>
+                                    <li class="tabs-title"><a href="#pelicula4">Horarios</a></li>
+                                </ul>
+        
+                                <div class="tabs-content" data-tabs-content="collapsing-tabs">
+                                    <div class="tabs-panel is-active" id="sala4">
+                                        <!----------------------------PRUEBA-------------------------->
+                                        <!----------------------------PRUEBA-------------------------->
+                                        <!----------------------------PRUEBA-------------------------->
+                                        <ul class="accordion" data-accordion data-multi-expand="true">
+                                            {% for f in funciones.1.7 %}
+                                            <li class="accordion-item" data-accordion-item>
+                                                <!-- Accordion tab title -->
+                                                <a href="#" class="accordion-title">{{ f.0 }}</a>
+        
+                                                <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+                                                <div class="accordion-content" data-tab-content>
+                                                    <table class="stack">
+                                                        <thead style="text-align: center;">
+                                                            <tr>
+                                                                <th>Funcion</th>
+                                                                <th>Hora</th>
+                                                                <th>Sala</th>
+                                                                <th>Asientos Reservados</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {% for d in f.1 %}
+                                                            <tr>
+                                                                <td>{{ d.tipo_funcion}}</td>
+                                                                <td>{{ d.hora}}</td>
+                                                                <td>{{ d.sala}}</td>
+                                                                <td>{{ d.asientos}}</td>
+        
+                                                            </tr>
+                                                            {% endfor %}
+                                                        </tbody>
+                                                    </table>
+        
+                                                </div>
+                                            </li>
+                                            {% endfor %}
+                                            <!-- ... -->
+                                        </ul>
+        
+        
+        
+                                    </div>
+                                    <div class="tabs-panel" id="pelicula4">
+                                        <!----------------Aqui voy a meter las peliculas----------------->
+        
+                                        <div class="table-scroll">
+        
+        
+                                            <table class="stack">
+                                                <thead style="text-align: center;">
+                                                    <tr>
+                                                        <th width="320">Pelicula</th>
+                                                        <th>Horarios</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for f in funciones.1.3 %}
+                                                    <tr>
+                                                        <td>{{ f.0}}</td>
+        
+                                                        <td>
+                                                            {{ f.1}}
+                                                        </td>
+        
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+        
+                                        </div>
+        
+                                    </div>
+                                </div>
+        
+                                <!---------------------------------------------------------------------->
+        
+        
+                                <!---------------------------------------------------------------------->
+        
+                            </div>
+                        </div>
+        
+        
+        
+                    </div>
+                </div>
+            
+            
+            
+            </div>
+
+
+        </div>
+        
+    </div>
+</div>
+</div>
+
+{% else %}
 
 <div class="grid-container">
     <div class="grid-x">
-      <div class="cell medium-3">
-        <ul class="vertical tabs" data-tabs id="example-tabs">
-          <li class="tabs-title is-active"><a href="#panel1v" aria-selected="true">Cinepolis Galerias</a></li>
-          <li class="tabs-title"><a href="#panel2v">MiCine Multiplaza Panamericana</a></li>
-          <li class="tabs-title"><a href="#panel3v">Cinépolis VIP Galerías</a></li>
-        </ul>
-      </div>
-      <div class="cell large-9">
-        <div class="tabs-content vertical" data-tabs-content="example-tabs">
-          <div class="tabs-panel is-active" id="panel1v">
-                    <table >
-                        <thead>
-                            <tr>
-                            <th>Pelicula</th>
-                            <th>Tipo Funcion</th>
-                            <th>Hora</th>
-                            <th>Sala</th>
-                            <th>Asientos</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for f in funciones.0 %}
-                            <tr>
-                                <td>{{ f.pelicula }}</td>
-                                <td>{{ f.tipo_funcion }}</td>
-                                <td>{{ f.hora }}</td>
-                                <td>{{ f.sala }}</td>
-                                <td>{{ f.asientos }}</td>
-                                
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table> 
-          </div>
-          <div class="tabs-panel" id="panel2v">
-            <table >
-                <thead>
-                    <tr>
-                    <th>Pelicula</th>
-                    <th>Tipo Funcion</th>
-                    <th>Hora</th>
-                    <th>Sala</th>
-                    <th>Asientos</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for f in funciones.1 %}
-                    <tr>
-                        <td>{{ f.pelicula }}</td>
-                        <td>{{ f.tipo_funcion }}</td>
-                        <td>{{ f.hora }}</td>
-                        <td>{{ f.sala }}</td>
-                        <td>{{ f.asientos }}</td>
-                        
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-          </div>
-          <div class="tabs-panel" id="panel3v">
-            <table >
-                <thead>
-                    <tr>
-                    <th>Pelicula</th>
-                    <th>Tipo Funcion</th>
-                    <th>Hora</th>
-                    <th>Sala</th>
-                    <th>Asientos</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for f in funciones.2 %}
-                    <tr>
-                        <td>{{ f.pelicula }}</td>
-                        <td>{{ f.tipo_funcion }}</td>
-                        <td>{{ f.hora }}</td>
-                        <td>{{ f.sala }}</td>
-                        <td>{{ f.asientos }}</td>
-                        
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-                <!-- <div class="grid-x" style="margin-top: 20;">
-                    <div class="cell">
-                        <h3>Sucursal: {{ funciones.0.sucursal }}</h3>
-                    </div>
-                    <table >
-                        <thead>
-                            <tr>
-                            <th>Pelicula</th>
-                            <th>Tipo Funcion</th>
-                            <th>Hora</th>
-                            <th>Sala</th>
-                            <th>Asientos</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for f in funciones %}
-                            <tr>
-                                <td>{{ f.pelicula }}</td>
-                                <td>{{ f.tipo_funcion }}</td>
-                                <td>{{ f.hora }}</td>
-                                <td>{{ f.sala }}</td>
-                                <td>{{ f.asientos }}</td>
-                                
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table> -->
-
-
-
-                </div>
-            </div>
+        <div class="cell callout warning" style="margin-top: 25px; text-align: center;">
+            <p cell>{{funciones.1}}</p>
         </div>
     </div>
+    
 </div>
+
+{% endif %}
 {% endblock content %}
